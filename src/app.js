@@ -30,8 +30,13 @@ app.get('/', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
-    // API requests with callback chaining
-    geocode('Newark', (error, {latitude, longitude, location}) => {
+    if (!req.query.address) {
+        return res.send({
+            error: 'You must provide an address'
+        })
+    }
+    // weather API requests with callback chaining
+    geocode(req.query.address, (error, {latitude, longitude, location} = {}) => {
         if (error) {
             return res.send({ error })
         }

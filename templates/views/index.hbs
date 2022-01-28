@@ -3,11 +3,22 @@
     <head>
         <title>MERN Weather</title>
         <link rel="stylesheet" href="/css/styles.css">
-        <!-- <script src="/js/app.js"></script> -->
     </head>
     <body>
-        {{>header}}
-        <h2>Hello {{title}} from Handlebars</h2>
+        <div>
+            {{>header}}
+
+            <form>
+                <input placeholder="Location">
+                <button>Search</button>
+            </form>
+
+            <p id="message1"></p>
+            <p id="message2"></p>
+        </div>
+
         {{>footer}}
+
+        <script src="/js/app.js"></script>
     </body>
 </html>
